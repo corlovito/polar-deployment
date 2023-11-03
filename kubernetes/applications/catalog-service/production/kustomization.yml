@@ -2,24 +2,24 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - github.com/corlovito/catalog_service//k8s?ref=main
+- github.com/corlovito/catalog_service//k8s?ref=main
 
 patchesStrategicMerge:
-  - patch-env.yml
-  - patch-resources.yml
-  - patch-volumes.yml
+- patch-env.yml
+- patch-resources.yml
+- patch-volumes.yml
 
 configMapGenerator:
-  - behavior: merge
-    files:
-      - application-prod.yml
-    name: catalog-config
+- behavior: merge
+  files:
+  - application-prod.yml
+  name: catalog-config
 
 images:
-  - name: catalog-service
-    newName: ghcr.io/corlovito/catalog-service
-    newTag: latest
+- name: catalog-service
+  newName: ghcr.io/corlovito/catalog-service
+  newTag: 3eeeed47654474a5ffd205d93bdc82035d46950e
 
 replicas:
-  - count: 2
-    name: catalog-service
+- count: 2
+  name: catalog-service
