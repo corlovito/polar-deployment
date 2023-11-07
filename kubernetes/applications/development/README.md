@@ -13,4 +13,4 @@ in sibling folders on your localhost or let Tilt do that.
 
 For more information, refer to [Many Tiltfiles and Many Repos](https://docs.tilt.dev/multiple_repos.html).
 
-This line was add for view difference between merge and rebase
+This from github was add for view difference between merge and rebase
