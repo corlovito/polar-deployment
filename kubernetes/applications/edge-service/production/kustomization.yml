@@ -5,23 +5,22 @@ resources:
   - github.com/corlovito/edge-service/k8s?ref=main
 
 patchesStrategicMerge:
-- patch-env.yml
-- patch-ingress.yml
-- patch-resources.yml
-- patch-volumes.yml
-- patch-startprobe.yml
+  - patch-env.yml
+  - patch-ingress.yml
+  - patch-resources.yml
+  - patch-volumes.yml
 
 configMapGenerator:
-- behavior: merge
-  files:
-  - application-prod.yml
-  name: edge-config
+  - behavior: merge
+    files:
+      - application-prod.yml
+    name: edge-config
 
 images:
   - name: edge-service
-    newName: ghcr.io/corlovito/edge-service
+    newName: ghcr.io/polarbookshop/edge-service
     newTag: latest
 
 replicas:
-- count: 1
-  name: edge-service
+  - count: 1
+    name: edge-service
