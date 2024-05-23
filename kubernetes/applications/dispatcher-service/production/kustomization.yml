@@ -18,7 +18,7 @@ configMapGenerator:
 images:
 - name: dispatcher-service
   newName: ghcr.io/corlovito/dispatcher-service
-  newTag: 9008b9428bb1935907be772ec8623a6dfca4b1f0
+  newTag: 9c5eedb50e70f0beb11896ac85568131868e7529
 
 replicas:
 - count: 1
