@@ -12,7 +12,7 @@ spec:
           httpGet:
             path: /actuator/health/liveness
             port: 9003
-          initialDelaySeconds: 60
+          initialDelaySeconds: 120
           timeoutSeconds: 1
           periodSeconds: 5
           successThreshold: 1
