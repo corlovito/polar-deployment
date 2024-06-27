@@ -4,7 +4,6 @@ metadata:
   name: catalog-service
 spec:
   minReadySeconds: 30
-  replicas: 3
   strategy: 
     type: RollingUpdate
     rollingUpdate:
