@@ -10,6 +10,7 @@ patchesStrategicMerge:
 - patch-volumes.yml
 - patch-startprobe.yml
 - patch-automountServiceAccount.yml
+- patch-canary.yml
 
 configMapGenerator:
 - behavior: merge
