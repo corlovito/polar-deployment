@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: catalog-service
-          image: ghcr.io/corlovito/catalog-service:632a90b2df5e0b2a65b2bc6f72a76135f5009ede
+          image: ghcr.io/corlovito/catalog-service:dd0689293006aa8bbec5d923294ac0bc6512b286
