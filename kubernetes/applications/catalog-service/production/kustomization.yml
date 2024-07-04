@@ -20,7 +20,7 @@ configMapGenerator:
 images:
 - name: catalog-service
   newName: ghcr.io/corlovito/catalog-service
-  newTag: 63a37d8f03a58de241bb026f343014fe890a7884
+  newTag: b361facacc2063d775e81dc201a0784d9ce60cdb
 
 replicas:
 - count: 1
