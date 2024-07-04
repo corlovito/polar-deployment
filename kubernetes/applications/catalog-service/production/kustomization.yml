@@ -10,6 +10,7 @@ patchesStrategicMerge:
 - patch-volumes.yml
 - patch-startprobe.yml
 - patch-automountServiceAccount.yml
+- patch-image.yml
 
 configMapGenerator:
 - behavior: merge
@@ -17,11 +18,21 @@ configMapGenerator:
   - application-prod.yml
   name: catalog-config
 
+openapi:
+  path: https://raw.githubusercontent.com/argoproj/argo-schema-generator/main/schema/argo_all_k8s_kustomize_schema.json
+
+    #patches:
+    #- patch: |-
+    #    apiVersion: argoproj.io/v1alpha1
+    #    kind: Rollout
+    #    metadata:
+    #      name: catalog-service
+    #    spec:
+    #      template:
+    #        spec:
+    #          containers:
+    #          - name: catalog-service
+    #            image: ghcr.io/corlovito/catalog-service:b361facacc2063d775e81dc201a0784d9ce60cdb
 images:
 - name: catalog-service
-  newName: ghcr.io/corlovito/catalog-service
-  newTag: b361facacc2063d775e81dc201a0784d9ce60cdb
-
-replicas:
-- count: 1
-  name: catalog-service
+  newName: my_service

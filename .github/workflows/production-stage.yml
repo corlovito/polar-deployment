@@ -20,8 +20,9 @@ jobs:
       - name: Update image version
         run: |
           cd kubernetes/applications/${{ env.APP_NAME }}/production
-          kustomize edit set image ${{ env.APP_NAME }}=${{ env.APP_IMAGE }}:${{ env.APP_VERSION }}
-          sed -i 's/ref=[\w+]/${{ env.APP_VERSION }}/' kustomization.yml
+          # kustomize edit set image ${{ env.APP_NAME }}=${{ env.APP_IMAGE }}:${{ env.APP_VERSION }}
+          # sed -i 's/ref=[\w+]/${{ env.APP_VERSION }}/' kustomization.yml
+          sed -i "s|ghcr.io/corlovito/${{ env.APP_NAME }}:[^ ]*|${{ env.APP_IMAGE }}:${{ env.APP_VERSION }}|g" patch-image.yml
       - name: Commit updated manifests
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
