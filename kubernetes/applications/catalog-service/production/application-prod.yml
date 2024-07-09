@@ -3,3 +3,6 @@ polar:
 spring:
   config:
     import: configtree:/workspace/secrets/*/
+
+logging:
+  pattern: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
