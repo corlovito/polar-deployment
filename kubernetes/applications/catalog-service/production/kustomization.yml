@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - github.com/corlovito/catalog_service//k8s?ref=main
+- analysis-template.yml 
 
 patchesStrategicMerge:
 - patch-env.yml
@@ -11,6 +12,7 @@ patchesStrategicMerge:
 - patch-startprobe.yml
 - patch-automountServiceAccount.yml
 - patch-image.yml
+- patch-rollout.yml
 
 configMapGenerator:
 - behavior: merge
