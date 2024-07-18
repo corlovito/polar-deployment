@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: canary-analysis
+spec:
+  metrics:
+  - name: success-rate
+    successCondition: result > 0.95
+    failureCondition: result <= 0.95
+    provider:
+      prometheus:
+        address: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local
+        query: |
+          sum(rate(http_server_requests_seconds_count{status=~"2..", uri=~"/books.*"}[1m])) / sum(rate(http_server_requests_seconds_count{uri=~"/books.*"}[1m]))

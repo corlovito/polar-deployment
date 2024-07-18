@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: catalog-service
+spec:
+  strategy:
+    blueGreen: null
+    canary:
+      canaryService: rollout-bluegreen-preview
+      stableService: catalog-service
+      steps:
+        - setWeight: 20
+        - pause: { duration: 10s }
+        - setWeight: 50
+        - pause: { duration: 10s }
+        - setWeight: 100
+  analysis:
+    templates:
+      - templateName: my-analysis-template
+    args:
+      - name: success-rate
+        value: "90"
+  revisionHistoryLimit: 2
+
