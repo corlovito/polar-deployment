@@ -18,7 +18,7 @@ spec:
         - setWeight: 100
   analysis:
     templates:
-      - templateName: my-analysis-template
+      - templateName: canary-analysis
     args:
       - name: success-rate
         value: "90"
