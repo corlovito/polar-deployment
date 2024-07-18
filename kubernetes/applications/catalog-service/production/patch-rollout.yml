@@ -6,8 +6,8 @@ spec:
   strategy:
     blueGreen: null
     canary:
-      canaryService: rollout-bluegreen-preview
-      stableService: catalog-service
+      #canaryService: rollout-bluegreen-preview
+      #stableService: catalog-service
       steps:
         - setWeight: 20
         - pause: {}
