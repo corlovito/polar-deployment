@@ -10,9 +10,9 @@ spec:
       stableService: catalog-service
       steps:
         - setWeight: 20
-        - pause: { duration: 10s }
+        - pause: {}
         - setWeight: 50
-        - pause: { duration: 10s }
+        - pause: {}
         - setWeight: 100
   analysis:
     templates:
