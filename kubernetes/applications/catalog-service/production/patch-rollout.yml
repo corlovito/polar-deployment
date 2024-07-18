@@ -8,6 +8,12 @@ spec:
     canary:
       #canaryService: rollout-bluegreen-preview
       #stableService: catalog-service
+      analysis:
+        templates:
+          - templateName: canary-analysis
+        args:
+          - name: success-rate
+            value: "90"
       steps:
         - setWeight: 20
         - pause: {}
@@ -16,11 +22,5 @@ spec:
         - pause: {}
           #- pause: { duration: 40s }
         - setWeight: 100
-  analysis:
-    templates:
-      - templateName: canary-analysis
-    args:
-      - name: success-rate
-        value: "90"
   revisionHistoryLimit: 2
 
