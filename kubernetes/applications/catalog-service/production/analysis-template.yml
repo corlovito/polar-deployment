@@ -5,11 +5,11 @@ metadata:
 spec:
   metrics:
   - name: success-rate
-    successCondition: result > 0.95
-    failureCondition: result <= 0.95
+    successCondition: result[0] > 0.95
+    failureCondition: result[0] <= 0.95
     provider:
       prometheus:
-        address: https://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local
+        address: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
         insecure: true
         query: |
           sum(irate(spring_cloud_gateway_requests_seconds_count{httpStatusCode="200",routeUri="http://catalog-service:80/books"}[60s]))/sum(irate(spring_cloud_gateway_requests_seconds_count{routeUri="http://catalog-service:80/books"}[60s]))
