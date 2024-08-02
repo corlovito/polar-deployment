@@ -12,4 +12,4 @@ spec:
         address: https://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local
         insecure: true
         query: |
-          sum(rate(http_server_requests_seconds_count{status=~"2..", uri=~"/books.*"}[1m])) / sum(rate(http_server_requests_seconds_count{uri=~"/books.*"}[1m]))
+          sum(irate(spring_cloud_gateway_requests_seconds_count{httpStatusCode="200",routeUri="http://catalog-service:80/books"}[60s]))/sum(irate(spring_cloud_gateway_requests_seconds_count{routeUri="http://catalog-service:80/books"}[60s]))
